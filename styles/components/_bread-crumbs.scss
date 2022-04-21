@@ -1,0 +1,59 @@
+@use 'sass:math';
+
+.breadcrumbs {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.6rem;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.breadcrumbs__item {
+  color: color('global-black');
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+
+  font-size: 1.2rem;
+  line-height: math.div(20, 12);
+
+  a {
+    color: currentColor;
+  }
+
+  @screen lg {
+    font-size: 1.4rem;
+    line-height: math.div(20, 14);
+  }
+
+  &::before {
+    background-color: black;
+    content: '';
+    display: block;
+    margin: 0 1.2rem;
+    height: 0.064rem;
+    width: 0.8rem;
+  }
+
+  &:not(:last-child) {
+    &:hover {
+      color: color('ultra-violet');
+    }
+  }
+
+  &:last-child {
+    pointer-events: none;
+  }
+}

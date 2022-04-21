@@ -1,0 +1,99 @@
+@use 'sass:math';
+
+.article-box {
+  display: block;
+  background-color: white;
+  transition: all;
+  transition-duration: 300ms;
+  box-shadow: 0 0.56rem 0.95rem rgb(0 51 102 / 11%);
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: currentColor;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-1rem);
+      box-shadow: 0 0.9rem 1.5rem rgb(0 39 78 / 11%);
+
+      .image__layer {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.article-box--fixed {
+  width: 24.3rem;
+  min-width: 24.3rem;
+
+  @screen lg {
+    width: 40.2rem;
+    min-width: 40.2rem;
+  }
+}
+
+.article-box__inner {
+  padding: 2.4rem;
+  padding-bottom: 4rem;
+
+  @screen lg {
+    padding: 4rem;
+  }
+}
+
+.article-box__date {
+  font-size: 1.2rem;
+  line-height: math.div(20, 12);
+  color: rgba(0, 0, 0, 0.8);
+
+  @screen lg {
+    font-size: 1.4rem;
+    line-height: math.div(20, 14);
+  }
+}
+
+.article-box__title {
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: math.div(24, 16);
+  margin-top: 1.6rem;
+
+  @screen lg {
+    font-size: 2rem;
+    line-height: math.div(28, 20);
+  }
+
+  @screen lg {
+    margin-top: 2.4rem;
+  }
+}
+
+.article-box__perex {
+  font-size: 1.2rem;
+  line-height: math.div(20, 12);
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 0.8rem;
+
+  @screen lg {
+    font-size: 1.4rem;
+    line-height: math.div(20, 14);
+    margin-top: 1.6rem;
+  }
+}
+
+.article-box__image {
+  display: block;
+  position: relative;
+  aspect-ratio: 201/125;
+  margin: 0;
+
+  img {
+    object-fit: cover;
+    z-index: 10;
+  }
+
+  @screen lg {
+    aspect-ration: 243/145;
+  }
+}
