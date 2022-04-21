@@ -1,0 +1,51 @@
+/*
+** One file to rule them all,
+** One file to find Them,
+** One file to bring them all,
+** And in the Sass way merge them.
+**
+ */
+
+/*--- START DEFAULT (order depends) ---*/
+
+// vendors
+@import '~normalize.css/normalize.css';
+
+// abstract
+@import 'abstract/mixins';
+@import 'abstract/functions';
+@import 'abstract/vars';
+@import 'abstract/animations';
+@import 'abstract/font';
+
+// base
+@import 'base/reboot';
+@import 'base/init';
+@import 'base/grid';
+@import 'base/grid-customization';
+@import 'base/embla';
+
+// components
+@import 'components/carousel';
+@import 'components/photo-box';
+
+// utility
+@import 'utility/alignment';
+@import 'utility/anchor-colors';
+@import 'utility/bg';
+@import 'utility/bg-c';
+@import 'utility/colors';
+@import 'utility/display';
+@import 'utility/flexbox';
+@import 'utility/generated-margins-paddings';
+@import 'utility/grid';
+@import 'utility/helpers';
+@import "utility/object";
+@import 'utility/radius';
+@import 'utility/shadow';
+@import 'utility/shapes';
+@import 'utility/sizes';
+@import 'utility/specific-margins-paddings';
+@import 'utility/typo';
+
+/*--- END DYNAMIC ---*/

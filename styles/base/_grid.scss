@@ -1,0 +1,109 @@
+/**
+** You can't touch this. More information on: https://www.youtube.com/watch?v=otCpCn0l4Wo&feature=youtu.be&t=14
+** Make customization in grid-customization.
+ */
+
+@use 'sass:math';
+
+.container {
+  width: 100%;
+  max-width: $max-container-width;
+  margin: 0 auto;
+  padding: 0 $col-gap;
+
+  @include respondMf(lg) {
+	  padding: 0 $col-gap-lg;
+  }
+}
+
+.container--full {
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 0 $col-gap;
+
+  @include respondMf(lg) {
+	  padding: 0 $col-gap-lg;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$col-gap;
+  margin-right: -$col-gap;
+
+  @include respondMf(lg) {
+	margin-left: -$col-gap-lg;
+  	margin-right: -$col-gap-lg;
+  }
+}
+
+.col,
+[class^="col-"] {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 1px;
+  padding-right: $col-gap;
+  padding-left: $col-gap;
+
+  @include respondMf(lg) {
+	padding-right: $col-gap-lg;
+  	padding-left: $col-gap-lg;
+  }
+}
+
+@for $i from 1 through 12 {
+  .col--#{$i} {
+	flex: 0 0 percentage(math.div($i, 12));
+	width: percentage(math.div($i, 12));
+	max-width: percentage(math.div($i, 12));
+  }
+}
+
+@for $i from 1 through 12 {
+  .col--right-#{$i} {
+	margin-right: percentage(math.div($i, 12));
+  }
+}
+
+@for $i from 1 through 12 {
+  .col--left-#{$i} {
+	margin-left: percentage(math.div($i, 12));
+  }
+}
+
+.col--auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@each $break, $break-value in $grid-breakpoints-mf {
+  @include respondMf($break) {
+	@for $i from 1 through 12 {
+	  .col--#{$break}-#{$i} {
+		flex: 0 0 percentage(math.div($i, 12));
+		width: percentage(math.div($i, 12));
+		max-width: percentage(math.div($i, 12));
+	  }
+	}
+
+	@for $i from 0 through 12 {
+	  .col--#{$break}-right-#{$i} {
+		margin-right: percentage(math.div($i, 12));
+	  }
+	}
+
+	@for $i from 0 through 12 {
+	  .col--#{$break}-left-#{$i} {
+		margin-left: percentage(math.div($i, 12));
+	  }
+	}
+
+	.col--#{$break}-auto {
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+  }
+}

@@ -1,0 +1,51 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.embla {
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+}
+
+.container_responsive {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 17.4rem;
+    grid-auto-rows: 20rem;
+    grid-column-gap: 1.8rem;
+    justify-content: space-between;
+
+    @include respondMf(md) {
+        grid-auto-columns: 30rem;
+        grid-auto-rows: 34.4rem;
+        grid-column-gap: 3rem;
+    }
+}
+
+.dots {
+    margin: auto;
+    margin-top: 1.8rem;
+}
+
+.dot {
+    @include setTransition(.3, opacity);
+
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+    background: color('global-white');
+    opacity: 0.2;
+    border-radius: 50%;
+    margin: 0 .35rem;
+}
+
+.dot_active {
+    opacity: 1;
+}

@@ -1,0 +1,67 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.card {
+    width: 100%;
+    height: 100%;
+}
+
+// background variants
+.solid {
+    background-color: color('global-white');
+    padding: 5.7rem 1.8rem 2.8rem 2.8rem;
+}
+
+.transparent {
+    width: calc(100% + $col-gap);
+    padding: 3.5rem 0;
+    border: 0 solid #b8b8b820;
+    border-bottom-width: .1rem;
+    
+    @include respondMf(md) {
+        width: 100%;
+        padding: 5.5rem 2.8rem 6.3rem 0;
+        border-right-width: .1rem;
+        border-bottom-width: 0;
+    }
+}
+
+// content variants
+.icon {
+    position: relative;
+    display: block;
+    height: 6rem;
+    margin-bottom: 5.3rem;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.counted {
+    counter-increment: card;
+
+    &::before {
+        content: counter(card, decimal-leading-zero);
+        display: block;
+        font-weight: 400;
+        font-size: 3.5rem;
+        line-height: math.div(28, 35);
+        color: #C8C8C8;
+        margin-bottom: 5.5rem;
+
+        @include respondMf(md) {
+            font-size: 4.4rem;
+            line-height: math.div(28, 44);
+            margin-bottom: 6.9rem;
+        }
+    }
+}

@@ -1,0 +1,140 @@
+@use "sass:color";
+
+// mobile first
+@mixin respondMf($breakpoint) {
+	@each $breakpointName, $breakpointPx in $grid-breakpoints-mf {
+		@if $breakpoint == $breakpointName {
+			@media only screen and (min-width: $breakpointPx) {
+				@content;
+			}
+		}
+	}
+}
+
+// setting link's colors
+@mixin setLinkColors($normal, $hover, $active: $hover, $visited: '') {
+	color: $normal; 
+
+	@if ($visited) {
+		&:visited {
+			color: $visited;
+		}
+	}
+
+	@include hover() {
+		&:hover {
+			color: $hover;
+		}
+	}
+
+	&:active {
+		color: $active;
+	}
+}
+
+// setting btn's colors
+@mixin setButtonColors($base-color, $light-base: lightness($base-color) >= 70%) {
+	$def-color: color('global-light');
+  
+	@if $light-base {
+	  	$def-color: color('global-dark');
+	}
+  
+	background-color: $base-color;
+	border-color: $base-color;
+	color: $def-color;
+  
+	@include hover() {
+		&:hover {
+			background-color: $def-color;
+			color: $base-color;
+		}
+	}
+
+	&:active {
+		background-color: $def-color;
+		border-color: $def-color;
+
+		@if $light-base {
+			color: color('global-light');
+		} @else {
+			color: color('global-dark');
+		}
+
+	}
+
+	&:disabled {
+
+	}
+  
+	&.transparent {
+	  background-color: transparent;
+	  color: $base-color;
+		
+		@include hover() {
+			&:hover {
+				color: $def-color;
+				background-color: $base-color;
+				border-color: $base-color;
+			}
+		}
+
+		&:active {
+		
+		}
+	}
+}
+
+// setting transition
+@mixin setTransition($duration, $properties...) {
+	transition-duration: #{$duration}s;
+	transition-property: $properties;
+	will-change: $properties;
+}
+
+// setting flex
+@mixin setFlexWidth($width) {
+	flex: 0 0 $width;
+	width: $width;
+
+	@if $width == auto {
+		max-width: unset;
+	} @else {
+		max-width: $width;
+	}
+}
+
+@mixin setFlexHeight($height) {
+	flex: 0 0 $height;
+	height: $height;
+
+	@if $height == auto {
+		max-height: unset;
+	} @else {
+		max-height: $height;
+	}
+}
+
+// target touch devices
+@mixin touch {
+	@media (hover: none), (pointer: coarse) {
+		@content;
+	}
+}
+
+// target non-touch devices
+@mixin hover {
+	@media not all and (pointer: coarse) {
+		@content;
+	}
+}
+
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}

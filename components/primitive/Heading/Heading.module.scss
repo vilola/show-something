@@ -1,0 +1,59 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.xlg {
+  font-size: 4.4rem;
+  line-height: math.div(54, 44);
+  margin-bottom: 1.8rem;
+
+  @include respondMf(md) {
+    font-size: 6.9rem;
+    line-height: math.div(89, 69);
+    margin-bottom: 3.5rem;
+  }
+}
+
+.lg {
+  font-size: 2.2rem;
+  line-height: math.div(32, 22);
+  margin-bottom: 1.8rem;
+
+  @include respondMf(md) {
+    font-size: 3.5rem;
+    line-height: math.div(48, 35);
+  }
+}
+
+.md {
+  font-size: 2.2rem;
+  line-height: math.div(28, 22);
+  margin-bottom: 1rem;
+  font-weight: 400;
+
+  @include respondMf(md) {
+    line-height: math.div(32, 22);
+  }
+}
+
+.sm {
+  font-size: 1.8rem;
+  line-height: math.div(28, 18);
+  margin-bottom: 0rem;
+
+  @include respondMf(md) {
+  }
+}
+
+.xs {
+  font-size: 1.6rem;
+  line-height: math.div(28, 16);
+  margin-bottom: 0rem;
+
+  @include respondMf(md) {
+    font-size: 1.8rem;
+    line-height: math.div(28, 18);
+  }
+}

@@ -1,0 +1,6 @@
+@each $color-key, $color-value in $colors {
+	.anchor-color-#{''+$color-key} {
+		@include setLinkColors($color-value, darken($color-value, 15%));
+		color: $color-value;
+	}
+}

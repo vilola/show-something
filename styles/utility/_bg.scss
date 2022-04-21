@@ -1,0 +1,26 @@
+.bg-clip-content {
+    background-clip: content-box;
+}
+
+.bg-gradient {
+    position: relative;
+
+    &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: radial-gradient(110.05% 108.83% at 96.7% 24.8%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+        opacity: 0.2;
+        pointer-events: none;
+        
+    }
+}
+
+.bg-gradient--revert {
+    &::before {
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+}

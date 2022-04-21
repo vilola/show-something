@@ -1,0 +1,50 @@
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.static {
+  position: static;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+.z-index-0 {
+  z-index: 0;
+}
+
+.z-index-n1 {
+  z-index: -1;
+}
+
+.mbm-diff {
+	mix-blend-mode: difference;
+}
+
+.cr-card {
+  counter-reset: card;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

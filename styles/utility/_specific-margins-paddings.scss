@@ -1,0 +1,31 @@
+//margins
+.m-t-84 {
+    margin-top: 8.4rem;
+}
+
+.lg-m-t-139 {
+    @include respondMf(lg) {
+        margin-top: 13.9rem;
+    }
+}
+
+.m-t-n236 {
+    margin-top: -23.6rem;
+}
+
+.lg-m-t-n343 {
+    @include respondMf(lg) {
+        margin-top: -34.3rem;
+    }
+}
+
+// paddings
+.p-t-152 {
+    padding-top: 15.2rem;
+}
+
+.lg-p-t-204 {
+    @include respondMf(lg) {
+        padding-top: 20.4rem;
+    }
+}

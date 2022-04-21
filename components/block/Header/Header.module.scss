@@ -1,0 +1,42 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.imgbg {
+    display: block;
+    position: relative;
+    min-height: 35rem;
+    margin-left: -$col-gap;
+
+    @include respondMf(md) {
+        min-height: 50rem;
+    }
+
+    @include respondMf(xlg) {
+        min-height: 63rem;
+        margin-left: 0;
+
+        &::before {
+            content: " ";
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            height: 100%;
+            width: calc(((100vw - $max-container-width) / 2) + 50% + $col-gap);
+            background-color: color('global-black');
+        }
+    }
+
+    img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        object-position: 0% 28%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

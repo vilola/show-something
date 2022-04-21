@@ -1,0 +1,23 @@
+@each $color-key, $color-value in $colors {
+	.color-#{''+$color-key} {
+		color: $color-value;
+	}
+}
+
+@each $color-key, $color-value in $colors {
+	.color-strong-#{''+$color-key} strong {
+		color: $color-value;
+	}
+}
+
+@each $color-key, $color-value in $colors {
+	.color-em-#{''+$color-key} em {
+		color: $color-value;
+	}
+}
+
+@each $color-key, $color-value in $colors {
+	.color-small-#{''+$color-key} small {
+		color: $color-value;
+	}
+}

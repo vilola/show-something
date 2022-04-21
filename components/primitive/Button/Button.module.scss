@@ -1,0 +1,66 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.button {
+  @include setTransition(.3, color, border-color, background-color);
+
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  border-width: .1rem;
+  border-style: solid;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+
+  font-size: 1.6rem;
+  line-height: math.div(22, 16);
+  padding: 1.5rem 2.2rem;
+  border-radius: 3.5rem;
+
+  @include respondMf(md) {
+    font-size: 1.8rem;
+    line-height: math.div(25, 18);
+    padding: 2.1rem 3.5rem;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  margin: -50% 0 -50% 2.3rem;
+  height: 2.5rem;
+
+  @include respondMf(md) {
+    margin-left: 5.5rem;
+    height: 3.5rem;
+  }
+}
+
+.sm {
+  font-size: 1.2rem;
+  line-height: math.div(17, 12);
+  padding: .8rem 1.8rem;
+  border-radius: 2.2rem;
+
+  @include respondMf(md) {
+    font-size: 1.4rem;
+    line-height: math.div(19, 14);
+    padding: 1.2rem 2.2rem;
+  }
+}
+
+.md {
+  font-size: 1.4rem;
+  line-height: math.div(19, 14);
+  padding: 1.3rem 2.2rem;
+  border-radius: 2.2rem;
+}
+
+@each $color-key, $color-value in $colors {
+  .#{''+$color-key} {
+    @include setButtonColors($color-value);
+  }
+}

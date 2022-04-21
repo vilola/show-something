@@ -1,0 +1,50 @@
+@use "sass:math";
+
+@import "styles/abstract/vars";
+@import "styles/abstract/mixins";
+@import "styles/abstract/functions";
+
+.textContent {
+  font-size: 1.6rem;
+  line-height: math.div(26, 16);
+  font-weight: 300;
+
+  p,
+  ul,
+  ol,
+  img,
+  table
+  {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p, ul, ol {
+    margin: 0 0 1.5rem;
+  }
+}
+
+.xs {
+  font-size: 1.2rem;
+  line-height: math.div(18, 12);
+
+  @include respondMf(md) {
+    font-size: 1.4rem;
+    line-height: math.div(22, 14);
+  }
+}
+
+.sm {
+  @include respondMf(md) {
+    font-size: 1.6rem;
+    line-height: math.div(28, 16);
+  }
+}
+
+.md {
+  @include respondMf(md) {
+    font-size: 1.8rem;
+    line-height: math.div(28, 18);
+  }
+}

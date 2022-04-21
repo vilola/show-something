@@ -1,0 +1,39 @@
+// paths
+$path-image: '/img';
+$path-font: '/fonts';
+
+// grid
+$max-container-width: 1320px;
+$col-gap: 2.2rem;
+$col-gap-lg: 1.5rem;
+
+// mf - mobile first
+$grid-breakpoints-mf: (
+		xs: 25em, // iPhone 6/7/8 Plus, iPhone 11,...
+		md: 48em, // iPad 768px
+		lg: 64em, // iPad Pro 1024px
+		xlg: 1194px, // iPad Pro Retina 2388x1668px
+		xsDesktop: 80em, // 1280px
+		smDesktop: 1366px, // good old laptop devices
+		mdDesktop: 90em, // 1440px
+		lgDesktop: 120em // 1920px
+);
+
+// fonts
+$font-family-1: 'Sura', sans-serif;
+
+$colors: (
+	global-white: #ffffff,
+	global-black: #000000,
+
+	greenery: #88B04B,
+	living-coral: #FF6F61,
+	ultra-violet: #6B5B95,
+	yellow-sea: #FFAE00,
+
+	error-red: #FF0000,
+	base-silver: #B8B8B8,
+
+	global-light: #ffffff,
+	global-dark: #000000,
+);
